@@ -1,6 +1,6 @@
 import openai
 import os
-from translate import translate_text
+from translate import translate_full
 import argparse
 
 lang_dict = {
@@ -22,7 +22,7 @@ def translate_file(input_path, output_path, base_lang, target_lang, client):
         file_content = f.read()
 
         print(f"Translating file {input_path} to {target_lang}...")
-        translated_text = translate_text(file_content, base_lang, target_lang, client)
+        translated_text = translate_full(file_content, base_lang, target_lang, client)
 
         with open(output_path, "w") as f:
             f.write(translated_text)
